@@ -1,20 +1,56 @@
-import logo from './logo.svg';
+import React, { Component } from 'react';
+import Customer from './components/Customer';
 import './App.css';
 
-function App() {
+const customers = [
+  {
+  'id' : 1,
+  'image' : 'https://placeimg.com/64/64/1',
+  'name' : '박경주',
+  'birthday' : '010828',
+  'gender' : '남자',
+  'job' : '대학생'
+},
+{
+  'id' : 2,
+  'image' : 'https://placeimg.com/64/64/2',
+  'name' : '홍길동',
+  'birthday' : '022828',
+  'gender' : '여자',
+  'job' : '프로그래머'
+},
+{
+  'id' : 3,
+  'image' : 'https://placeimg.com/64/64/3',
+  'name' : '박슈',
+  'birthday' : '020828',
+  'gender' : '남자',
+  'job' : '학생'
+}
+]
 
-  let posts = '강남 고기 맛집';
-  function 함수(){
-    return 100
-  }
-  return (
-    <div className="App">
-      <div className="black-nav">
-        <div>개발 Blog</div>
+class App extends Component {
+  render() {
+    return (
+      <div>
+        {
+          customers.map(c => {
+            return (
+            <Customer
+              key={c.id}
+              id={c.id}
+              image={c.image}
+              name={c.name}
+              birthday={c.birthday}
+              gender={c.gender}
+              job={c.job}
+            />
+            );
+          })
+        } 
       </div>
-      <h4>{ 함수() }</h4>
-    </div>
-  );
+    );
+  }
 }
 
 export default App;
